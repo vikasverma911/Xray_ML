@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <div class="page-prediction">
+    <div class="img-shown">
+      <img src="../static/images/upload_chest.jpg">
+    </div>
+    <div class="pred">
+      {% if pred[0][0]<=50%}
+        <div class="alert alert-danger">
+          <strong>Danger!</strong> The xray indicates Corona <strong>Positive</strong>.
+        </div>
+      {%else%}
+        <div class="alert alert-success">
+          <strong>Safe!</strong> The xray indicates Corona <strong>Negative</strong>.
+        </div>
+      {%endif%}
+
+      <div class="alert alert-info">
+        <strong>Probality - </strong>{{ 100 - pred[0][0] }}.
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
